@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barangay 172 Urduja - Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'garamond': ['EB Garamond', 'serif'],
+                    },
+                    colors: {
+                        'barangay-orange': '#ff8829',
+                        'barangay-green': '#2E8B57',
+                        'barangay-blue': '#1e40af',
+                        'barangay-red': '#dc2626',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'bounce-slow': 'bounce 2s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #ff8829 0%, #ff6b35 50%, #f7931e 100%);
+        }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        body {
+            background-image: url('assets/images/hall.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="font-poppins">
+    <!-- Navigation -->
+    <nav class="shadow-lg sticky top-0 z-50 backdrop-blur-md" style="background-color: #ff6700;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div>
+                            <h1 class="text-2xl font-bold text-white font-garamond">Brgy. 172 Urduja</h1>
+                            <p class="text-sm text-orange-100">Caloocan City, Metro Manila</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-white hover:text-orange-200 font-medium transition duration-300">Home</a>
+                    <a href="#about" class="text-white hover:text-orange-200 font-medium transition duration-300">About</a>
+                    <a href="#services" class="text-white hover:text-orange-200 font-medium transition duration-300">Services</a>
+                    <a href="#contact" class="text-white hover:text-orange-200 font-medium transition duration-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg hero-pattern relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div class="text-center animate-fade-in">
+                <div class="mb-8">
+                    <img src="assets/images/b172logo.png" alt="Barangay 172 Logo" class="h-24 w-24 mx-auto mb-6 rounded-full shadow-2xl animate-bounce-slow">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight font-garamond">
+                        <span class="text-black">Welcome to</span> <span class="text-green-800">Brgy. 172 Urduja</span>
+                </h1>
+                    <p class="text-sm md:text-base text-black mb-8 max-w-4xl mx-auto leading-relaxed">
+                        Empowering our community with <span class="font-semibold text-barangay-orange">efficient digital services</span> and dedicated care. 
+                    Together we build a stronger, healthier barangay for all residents.
+                </p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <a href="auth/login.php" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-bold text-sm transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <i class="fas fa-sign-in-alt mr-2"></i>Login
+                    </a>
+                    <a href="auth/register.php" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-bold text-sm transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <i class="fas fa-user-plus mr-2"></i>Register
+                    </a>
+                </div>
+
+                <!-- Tagline -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-8 text-center">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-2 font-garamond">
+                            <span class="text-green-600">Malapit sa Tao</span>, <span class="text-orange-500">Sanay sa Tao</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-2xl"></i>
+    </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-garamond">
+                    About <span class="text-barangay-orange">Barangay 172 Urduja</span>
+                </h2>
+                <p class="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Located in the heart of Caloocan City, Barangay 172 Urduja is committed to providing 
+                    excellent public service and fostering community development through innovative digital solutions.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-up">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6 font-garamond">Our Mission & Vision</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-barangay-orange rounded-full p-3 flex-shrink-0">
+                                <i class="fas fa-bullseye text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2 font-garamond">Mission</h4>
+                                <p class="text-gray-600 text-sm">
+                                    To provide efficient, transparent, and accessible public services that enhance 
+                                    the quality of life for all residents while promoting community participation and development.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-barangay-green rounded-full p-3 flex-shrink-0">
+                                <i class="fas fa-eye text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2 font-garamond">Vision</h4>
+                                <p class="text-gray-600 text-sm">
+                                    To be a model barangay that exemplifies good governance, digital innovation, 
+                                    and community empowerment in the 21st century.
+                                </p>
+                            </div>
+            </div>
+        </div>
+    </div>
+                
+                <div class="animate-slide-up">
+                    <img src="assets/images/campaignposter.png" alt="Barangay Campaign" class="w-full h-auto rounded-2xl shadow-2xl">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-garamond">
+                    Our <span class="text-barangay-orange">Services</span>
+                </h2>
+                <p class="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Comprehensive digital solutions for all barangay operations. 
+                    Streamlined, efficient, and accessible to all residents.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <!-- Barangay Hall Subsystem -->
+                <div class="group relative bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    <!-- Gradient Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 to-teal-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <!-- Header -->
+                    <div class="relative p-8 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-400 to-green-500 rounded-2xl mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-building text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800 font-garamond group-hover:text-emerald-600 transition-colors duration-300">Barangay Hall Services</h3>
+                        <p class="text-gray-600 text-sm">Comprehensive administrative services for residents</p>
+                    </div>
+                    
+                    <!-- Services List -->
+                    <div class="relative px-8 pb-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3 group/item">
+                                    <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors duration-200">
+                                        <i class="fas fa-check text-emerald-600 text-xs group-hover/item:text-white transition-colors duration-200"></i>
+                                    </div>
+                                    <span class="text-gray-700 text-sm font-medium group-hover/item:text-emerald-600 transition-colors duration-200">Barangay Certificates and Clearances</span>
+                                </div>
+                                <div class="flex items-center space-x-3 group/item">
+                                    <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors duration-200">
+                                        <i class="fas fa-check text-emerald-600 text-xs group-hover/item:text-white transition-colors duration-200"></i>
+                                    </div>
+                                    <span class="text-gray-700 text-sm font-medium group-hover/item:text-emerald-600 transition-colors duration-200">Barangay Permits</span>
+                                </div>
+                                <div class="flex items-center space-x-3 group/item">
+                                    <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors duration-200">
+                                        <i class="fas fa-check text-emerald-600 text-xs group-hover/item:text-white transition-colors duration-200"></i>
+                                    </div>
+                                    <span class="text-gray-700 text-sm font-medium group-hover/item:text-emerald-600 transition-colors duration-200">Online Applications</span>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3 group/item">
+                                    <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors duration-200">
+                                        <i class="fas fa-check text-emerald-600 text-xs group-hover/item:text-white transition-colors duration-200"></i>
+                                    </div>
+                                    <span class="text-gray-700 text-sm font-medium group-hover/item:text-emerald-600 transition-colors duration-200">Case Management</span>
+                                </div>
+                                <div class="flex items-center space-x-3 group/item">
+                                    <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors duration-200">
+                                        <i class="fas fa-check text-emerald-600 text-xs group-hover/item:text-white transition-colors duration-200"></i>
+                                    </div>
+                                    <span class="text-gray-700 text-sm font-medium group-hover/item:text-emerald-600 transition-colors duration-200">Community Concerns</span>
+                                </div>
+                                <div class="flex items-center space-x-3 group/item">
+                                    <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors duration-200">
+                                        <i class="fas fa-check text-emerald-600 text-xs group-hover/item:text-white transition-colors duration-200"></i>
+                                    </div>
+                                    <span class="text-gray-700 text-sm font-medium group-hover/item:text-emerald-600 transition-colors duration-200">Account Verification</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Button -->
+                    <div class="relative px-8 pb-8">
+                        <a href="barangay-hall/index.php" class="block w-full bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white py-3 px-6 rounded-xl font-semibold text-sm text-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                            <i class="fas fa-arrow-right mr-2"></i>Access Services
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Health Center Subsystem -->
+                <div class="group relative bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    <!-- Gradient Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-50 to-teal-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <!-- Header -->
+                    <div class="relative p-8 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-400 to-green-500 rounded-2xl mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-heartbeat text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-gray-800 font-garamond group-hover:text-emerald-600 transition-colors duration-300">Health Center Services</h3>
+                        <p class="text-gray-600 text-sm">Comprehensive healthcare services for the community</p>
+                    </div>
+                    
+                    <!-- Services List -->
+                    <div class="relative px-8 pb-6">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3 group/item">
+                                    <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors duration-200">
+                                        <i class="fas fa-check text-emerald-600 text-xs group-hover/item:text-white transition-colors duration-200"></i>
+                                    </div>
+                                    <span class="text-gray-700 text-sm font-medium group-hover/item:text-emerald-600 transition-colors duration-200">Medical Consultations</span>
+                                </div>
+                                <div class="flex items-center space-x-3 group/item">
+                                    <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors duration-200">
+                                        <i class="fas fa-check text-emerald-600 text-xs group-hover/item:text-white transition-colors duration-200"></i>
+                                    </div>
+                                    <span class="text-gray-700 text-sm font-medium group-hover/item:text-emerald-600 transition-colors duration-200">Health Records</span>
+                                </div>
+                                <div class="flex items-center space-x-3 group/item">
+                                    <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors duration-200">
+                                        <i class="fas fa-check text-emerald-600 text-xs group-hover/item:text-white transition-colors duration-200"></i>
+                                    </div>
+                                    <span class="text-gray-700 text-sm font-medium group-hover/item:text-emerald-600 transition-colors duration-200">Appointment Booking</span>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3 group/item">
+                                    <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors duration-200">
+                                        <i class="fas fa-check text-emerald-600 text-xs group-hover/item:text-white transition-colors duration-200"></i>
+                                    </div>
+                                    <span class="text-gray-700 text-sm font-medium group-hover/item:text-emerald-600 transition-colors duration-200">Vaccination Programs</span>
+                                </div>
+                                <div class="flex items-center space-x-3 group/item">
+                                    <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors duration-200">
+                                        <i class="fas fa-check text-emerald-600 text-xs group-hover/item:text-white transition-colors duration-200"></i>
+                                    </div>
+                                    <span class="text-gray-700 text-sm font-medium group-hover/item:text-emerald-600 transition-colors duration-200">Health Education</span>
+                                </div>
+                                <div class="flex items-center space-x-3 group/item">
+                                    <div class="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center group-hover/item:bg-emerald-500 transition-colors duration-200">
+                                        <i class="fas fa-check text-emerald-600 text-xs group-hover/item:text-white transition-colors duration-200"></i>
+                                    </div>
+                                    <span class="text-gray-700 text-sm font-medium group-hover/item:text-emerald-600 transition-colors duration-200">Medical Staff</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Button -->
+                    <div class="relative px-8 pb-8">
+                        <a href="health-center/index.php" class="block w-full bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-white py-3 px-6 rounded-xl font-semibold text-sm text-center transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                            <i class="fas fa-arrow-right mr-2"></i>Access Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Barangay Officers Section -->
+    <section class="py-20 bg-white relative">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30" style="background-image: url('assets/images/hall.png');"></div>
+        <div class="absolute inset-0 bg-white bg-opacity-60"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-garamond">
+                    Our <span class="text-barangay-orange">Officials</span>
+                </h2>
+                <p class="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Meet the dedicated leaders who serve our community with integrity, 
+                    commitment, and unwavering dedication to Barangay 172 Urduja.
+                </p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+                    <table class="w-full">
+                        <thead class="bg-gradient-to-r from-barangay-orange to-orange-600 text-white">
+                            <tr>
+                                <th class="px-4 py-3 text-left text-sm font-bold">Position</th>
+                                <th class="px-4 py-3 text-left text-sm font-bold">Name</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="bg-orange-50 hover:bg-orange-100 transition-colors duration-200">
+                                <td class="px-4 py-3 text-sm font-semibold text-gray-800">Barangay Captain</td>
+                                <td class="px-4 py-3 text-sm text-gray-700 font-medium">King Del Rosario</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="px-4 py-3 text-sm font-semibold text-gray-800">Barangay Administrator</td>
+                                <td class="px-4 py-3 text-sm text-gray-700 font-medium">Don Del Rosario</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="px-4 py-3 text-sm font-semibold text-gray-800">SK Chairman</td>
+                                <td class="px-4 py-3 text-sm text-gray-700 font-medium">Jhon Nico Molina</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="px-4 py-3 text-sm font-semibold text-gray-800">Secretary</td>
+                                <td class="px-4 py-3 text-sm text-gray-700 font-medium">Luz Delos Santos</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="px-4 py-3 text-sm font-semibold text-gray-800">Treasurer</td>
+                                <td class="px-4 py-3 text-sm text-gray-700 font-medium">Emelita Santos</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="px-4 py-3 text-sm font-semibold text-gray-800">Kagawad</td>
+                                <td class="px-4 py-3 text-sm text-gray-700 font-medium">Eloisa Barbara</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="px-4 py-3 text-sm font-semibold text-gray-800">Kagawad</td>
+                                <td class="px-4 py-3 text-sm text-gray-700 font-medium">Augusto Ravago</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="px-4 py-3 text-sm font-semibold text-gray-800">Kagawad</td>
+                                <td class="px-4 py-3 text-sm text-gray-700 font-medium">Greta Tricia Udaundo</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="px-4 py-3 text-sm font-semibold text-gray-800">Kagawad</td>
+                                <td class="px-4 py-3 text-sm text-gray-700 font-medium">Anita Avila</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="px-4 py-3 text-sm font-semibold text-gray-800">Kagawad</td>
+                                <td class="px-4 py-3 text-sm text-gray-700 font-medium">Catherine Loida Reyes</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                <td class="px-4 py-3 text-sm font-semibold text-gray-800">Kagawad</td>
+                                <td class="px-4 py-3 text-sm text-gray-700 font-medium">Antonio Geronimo Jr</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 animate-slide-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-garamond">
+                    Find <span class="text-barangay-orange">Us</span>
+                </h2>
+                <p class="text-base text-gray-600 max-w-3xl mx-auto">
+                    Visit our barangay hall located in the heart of Caloocan City. 
+                    We're here to serve you with dedication and excellence.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+                <div class="lg:col-span-2 animate-slide-up">
+                    <!-- Modern Card with Barangay Colors -->
+                    <div class="relative">
+                        <!-- Main card -->
+                        <div class="relative bg-white rounded-2xl p-4 lg:p-5 shadow-xl border border-orange-100">
+                            
+                            <!-- Contact cards -->
+                            <div class="grid gap-3 lg:gap-4">
+                                <!-- Address Card -->
+                                <div class="bg-gradient-to-r from-orange-50 to-orange-100 rounded-xl p-3 lg:p-4 border border-orange-200 hover:shadow-md transition-all duration-300 group">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-barangay-orange to-orange-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                            <i class="fas fa-map-marker-alt text-white text-xs lg:text-sm"></i>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h4 class="text-gray-800 font-bold text-sm lg:text-base mb-1">Our Location</h4>
+                                            <p class="text-gray-700 text-xs lg:text-sm leading-relaxed">Magat Salamat Street Urduja Village, Caloocan City</p>
+                                            <p class="text-gray-500 text-xs mt-1 font-mono">14.7481°N, 121.0411°E</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Contact Card -->
+                                <div class="bg-gradient-to-r from-orange-50 to-orange-100 rounded-xl p-3 lg:p-4 border border-orange-200 hover:shadow-md transition-all duration-300 group">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-barangay-orange to-orange-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                            <i class="fas fa-phone text-white text-xs lg:text-sm"></i>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h4 class="text-gray-800 font-bold text-sm lg:text-base mb-1">Contact Us</h4>
+                                            <div class="space-y-1">
+                                                <p class="text-gray-700 text-xs lg:text-sm flex items-center">
+                                                    <span class="w-1.5 h-1.5 bg-barangay-orange rounded-full mr-2 flex-shrink-0"></span>
+                                                    8442-15-31 / 8442-40-61
+                                                </p>
+                                                <p class="text-gray-700 text-xs lg:text-sm flex items-center">
+                                                    <span class="w-1.5 h-1.5 bg-barangay-orange rounded-full mr-2 flex-shrink-0"></span>
+                                                    barangay1722023urduja@gmail.com
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3 animate-slide-up">
+                    <div class="relative">
+                        <!-- Modern Map Container -->
+                        <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl overflow-hidden shadow-2xl border border-gray-200 h-80 lg:h-96">
+                            <!-- Map Header -->
+                            <div class="bg-white px-6 py-4 border-b border-gray-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-10 h-10 bg-gradient-to-r from-barangay-orange to-orange-600 rounded-xl flex items-center justify-center">
+                                            <i class="fas fa-map-marked-alt text-white text-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-800">Interactive Map</h4>
+                                            <p class="text-sm text-gray-600">Click to explore our location</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <button class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-lg flex items-center justify-center transition-colors duration-200">
+                                            <i class="fas fa-expand text-gray-600 text-sm"></i>
+                                        </button>
+                                        <button class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-lg flex items-center justify-center transition-colors duration-200">
+                                            <i class="fas fa-share text-gray-600 text-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Map Content -->
+                            <div class="relative">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.234567890123!2d121.0411!3d14.7481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQ0JzUzLjEiTiAxMjHCsDAyJzI4LjAiRQ!5e0!3m2!1sen!2sph!4v1234567890123!5m2!1sen!2sph"
+                                    width="100%" 
+                                    height="300" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    class="w-full h-72 lg:h-80">
+                                </iframe>
+                                
+                                <!-- Custom Location Pin Overlay -->
+                                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                                    <div class="relative group cursor-pointer">
+                                        <!-- Pulsing background -->
+                                        <div class="absolute inset-0 bg-barangay-orange rounded-full animate-ping opacity-75"></div>
+                                        <div class="absolute inset-0 bg-barangay-orange rounded-full animate-pulse opacity-50"></div>
+                                        
+                                        <!-- Main pin -->
+                                        <div class="relative w-12 h-12 bg-gradient-to-r from-barangay-orange to-orange-600 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300">
+                                            <i class="fas fa-map-marker-alt text-white text-lg"></i>
+                                        </div>
+                                        
+                                        <!-- Tooltip -->
+                                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <div class="bg-gray-800 text-white text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
+                                                <div class="font-semibold">Barangay 172 Urduja</div>
+                                                <div class="text-xs text-gray-300">Click to open in Google Maps</div>
+                                                <!-- Arrow -->
+                                                <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Map Footer -->
+                            <div class="bg-white px-6 py-3 border-t border-gray-200">
+                                <div class="flex items-center justify-between text-sm text-gray-600">
+                                    <div class="flex items-center space-x-4">
+                                        <span class="flex items-center">
+                                            <i class="fas fa-info-circle mr-2"></i>
+                                            Powered by Google Maps
+                                        </span>
+                                        <span class="flex items-center">
+                                            <i class="fas fa-shield-alt mr-2"></i>
+                                            Secure & Private
+                                        </span>
+                                    </div>
+                                    <a href="https://maps.google.com/?q=14.7481,121.0411" target="_blank" class="text-barangay-orange hover:text-orange-600 font-medium flex items-center transition-colors duration-200">
+                                        <i class="fas fa-external-link-alt mr-2"></i>
+                                        Open in Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Official Seals Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 font-garamond">
+                    Official <span class="text-barangay-orange">Seals</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Government agencies and official partners supporting our community initiatives.
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center items-center gap-12">
+                <!-- AM Logo -->
+                <div class="flex-shrink-0">
+                    <img src="assets/images/AM-logo.png" alt="AM ACSYON IT MALAGARIT" class="h-24 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300">
+                </div>
+
+                <!-- Caloocan Logo -->
+                 
+                <div class="flex-shrink-0">
+                    <img src="assets/images/caloocanlogo.png" alt="Caloocan City" class="h-24 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300">
+                </div>
+
+                <!-- Barangay 172 Logo -->
+                <div class="flex-shrink-0">
+                    <img src="assets/images/b172logo.png" alt="Barangay 172 Urduja" class="h-24 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300">
+                </div>
+
+                <!-- Bagong Pilipinas Logo -->
+                <div class="flex-shrink-0">
+                    <img src="assets/images/bagongpilipinas.png" alt="Bagong Pilipinas" class="h-24 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+     
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 Barangay 172 Urduja Management System. All rights reserved.
+                    <span class="text-barangay-orange">Made with ❤️ for our community</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slide-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.backgroundColor = 'rgba(255, 103, 0, 0.95)';
+                nav.classList.add('backdrop-blur-md');
+            } else {
+                nav.style.backgroundColor = '#ff6700';
+                nav.classList.remove('backdrop-blur-md');
+            }
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
