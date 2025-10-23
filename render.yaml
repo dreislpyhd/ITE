@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: barangay-management-system
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: barangay-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: barangay-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: barangay-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: barangay-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: barangay-db
+          property: password
+      - key: APP_URL
+        value: https://barangay-management-system.onrender.com
+
+databases:
+  - name: barangay-db
+    plan: free
+    databaseName: barangay_management
+    user: barangay_user
