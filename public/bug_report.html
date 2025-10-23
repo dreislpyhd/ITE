@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barangay 172 - Bug Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .filter-section {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-section input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 1em;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 150px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-card h3 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            opacity: 0.9;
+        }
+
+        .table-container {
+            background: rgba(255,255,255,0.95);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #333;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tbody tr:hover {
+            background: #f5f5f5;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .severity {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .severity.high {
+            background: #ff4444;
+            color: white;
+        }
+
+        .severity.medium {
+            background: #ffaa00;
+            color: white;
+        }
+
+        .severity.low {
+            background: #00C851;
+            color: white;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .status.fixed {
+            background: #00C851;
+            color: white;
+        }
+
+        .status.open {
+            background: #ffaa00;
+            color: white;
+        }
+
+        .bug-id {
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .module {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .rows-info {
+            text-align: right;
+            padding: 15px;
+            color: #666;
+            font-size: 0.9em;
+            background: rgba(255,255,255,0.95);
+        }
+
+        @media (max-width: 768px) {
+            table {
+                font-size: 0.85em;
+            }
+            
+            th, td {
+                padding: 10px 8px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐛 Barangay 172 Bug Report</h1>
+        <p class="subtitle">Comprehensive Bug Tracking & Resolution Status</p>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3>20</h3>
+                <p>Total Bugs</p>
+            </div>
+            <div class="stat-card">
+                <h3>20</h3>
+                <p>Fixed</p>
+            </div>
+            <div class="stat-card">
+                <h3>0</h3>
+                <p>Open</p>
+            </div>
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p>Resolution Rate</p>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <input type="text" id="searchInput" placeholder="Filter (e.g., Open, High, auth, dashboard)" onkeyup="filterTable()">
+        </div>
+
+        <div class="table-container">
+            <table id="bugTable">
+                <thead>
+                    <tr>
+                        <th>Bug ID</th>
+                        <th>Module/Feature</th>
+                        <th>Description</th>
+                        <th>Steps to Reproduce</th>
+                        <th>Severity<br>(Low/Med/High)</th>
+                        <th>Status<br>(Open/Fixed)</th>
+                        <th>Assigned To</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="bug-id">B-001</span></td>
+                        <td><span class="module">Login Module (auth/)</span></td>
+                        <td>Login button not clickable on mobile Safari</td>
+                        <td>1. Open login page on iOS Safari 2. Tap "Login" after entering credentials</td>
+                        <td><span class="severity high">High</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer A</td>
+                        <td>Fixed by adding -webkit-tap-highlight and proper touch event handlers</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-002</span></td>
+                        <td><span class="module">Dashboard (index.html)</span></td>
+                        <td>Chart section not loading on slow connections</td>
+                        <td>1. Log in 2. Go to dashboard 3. Observe charts area blank</td>
+                        <td><span class="severity medium">Medium</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer B</td>
+                        <td>Resolved by updating data fetch URL and adding loading states</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-003</span></td>
+                        <td><span class="module">Residents (residents/)</span></td>
+                        <td>Duplicate resident entries allowed on import</td>
+                        <td>1. Run create_default_residents.php twice 2. Check residents list</td>
+                        <td><span class="severity medium">Medium</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer C</td>
+                        <td>Added unique index constraint and upsert logic</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-004</span></td>
+                        <td><span class="module">Health Center (health_center/)</span></td>
+                        <td>Unauthorized access allowed for non-health role users</td>
+                        <td>1. Login as regular user 2. Navigate to /health-center/</td>
+                        <td><span class="severity high">High</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer D</td>
+                        <td>Added role middleware/guard to all health center routes</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-005</span></td>
+                        <td><span class="module">File Uploads (uploads/)</span></td>
+                        <td>PNG files rejected despite valid MIME type</td>
+                        <td>1. Open resident 2. Upload 1MB PNG 3. Observe error under 1MB limit</td>
+                        <td><span class="severity low">Low</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer E</td>
+                        <td>Fixed MIME detection mismatch; updated server config</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-006</span></td>
+                        <td><span class="module">Certificates (barangay-hall/)</span></td>
+                        <td>Generated PDF missing barangay seal watermark</td>
+                        <td>1. Generate Barangay Clearance 2. Open PDF 3. Inspect header</td>
+                        <td><span class="severity low">Low</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer D</td>
+                        <td>Fixed asset path; seal now renders correctly</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-007</span></td>
+                        <td><span class="module">Authentication (auth/)</span></td>
+                        <td>Flash message persists after successful login redirect</td>
+                        <td>1. Fail login once 2. Login successfully 3. Observe error still shown</td>
+                        <td><span class="severity low">Low</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer F</td>
+                        <td>Cleared session error on success; proper redirect flow</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-008</span></td>
+                        <td><span class="module">Cleanup (execute_cleanup.php)</span></td>
+                        <td>Active users accidentally flagged as inactive</td>
+                        <td>1. Seed users 2. Run cleanup 3. Review affected users</td>
+                        <td><span class="severity high">High</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer C</td>
+                        <td>Adjusted date threshold; added verification query</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-009</span></td>
+                        <td><span class="module">User Management (admin/users.php)</span></td>
+                        <td>New users displayed at bottom instead of top of list</td>
+                        <td>1. Add new user 2. Go to users page 3. Check user position</td>
+                        <td><span class="severity low">Low</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer A</td>
+                        <td>Changed ORDER BY from DESC to ASC; users now show oldest first</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-010</span></td>
+                        <td><span class="module">Email System (emails/)</span></td>
+                        <td>Email verification links expire too quickly</td>
+                        <td>1. Register 2. Wait 30 mins 3. Click verification link</td>
+                        <td><span class="severity medium">Medium</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer B</td>
+                        <td>Extended token expiry from 1 hour to 24 hours</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-011</span></td>
+                        <td><span class="module">Database (barangay_management.db)</span></td>
+                        <td>Foreign key constraints causing cascade delete issues</td>
+                        <td>1. Delete resident with documents 2. Observe orphaned records</td>
+                        <td><span class="severity high">High</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer C</td>
+                        <td>Implemented proper CASCADE rules in schema</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-012</span></td>
+                        <td><span class="module">Barangay Hall (barangay-hall/)</span></td>
+                        <td>Document request queue not updating in real-time</td>
+                        <td>1. Submit document request 2. Check staff dashboard 3. Refresh required</td>
+                        <td><span class="severity medium">Medium</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer D</td>
+                        <td>Added auto-refresh mechanism every 30 seconds</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-013</span></td>
+                        <td><span class="module">Residents Dashboard (residents/)</span></td>
+                        <td>Profile picture upload fails for files over 2MB</td>
+                        <td>1. Go to profile 2. Upload 3MB image 3. Observe failure</td>
+                        <td><span class="severity low">Low</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer E</td>
+                        <td>Increased upload limit to 5MB and added compression</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-014</span></td>
+                        <td><span class="module">Reports (admin/reports.php)</span></td>
+                        <td>Export to CSV generates corrupted file with special characters</td>
+                        <td>1. Generate report with accented names 2. Export CSV 3. Open in Excel</td>
+                        <td><span class="severity medium">Medium</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer F</td>
+                        <td>Added UTF-8 BOM header for proper encoding</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-015</span></td>
+                        <td><span class="module">Session Management (includes/)</span></td>
+                        <td>Users logged out unexpectedly during active use</td>
+                        <td>1. Login 2. Use system normally 3. Get logged out after 15 mins</td>
+                        <td><span class="severity high">High</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer A</td>
+                        <td>Extended session timeout to 2 hours with activity tracking</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-016</span></td>
+                        <td><span class="module">Search Functionality (residents/)</span></td>
+                        <td>Search returns no results for partial name matches</td>
+                        <td>1. Search "Juan" when full name is "Juan dela Cruz" 2. No results shown</td>
+                        <td><span class="severity medium">Medium</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer B</td>
+                        <td>Implemented LIKE query with wildcards for partial matching</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-017</span></td>
+                        <td><span class="module">Pagination (admin/users.php)</span></td>
+                        <td>Page navigation breaks when filtering by role</td>
+                        <td>1. Filter by "Resident" 2. Go to page 2 3. Filter is lost</td>
+                        <td><span class="severity low">Low</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer C</td>
+                        <td>Preserved query parameters in pagination links</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-018</span></td>
+                        <td><span class="module">Password Reset (auth/)</span></td>
+                        <td>Reset token can be reused multiple times</td>
+                        <td>1. Request password reset 2. Use token 3. Use same token again</td>
+                        <td><span class="severity high">High</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer D</td>
+                        <td>Implemented one-time token invalidation after use</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-019</span></td>
+                        <td><span class="module">Health Records (health-center/)</span></td>
+                        <td>Medical history not displaying chronologically</td>
+                        <td>1. View patient records 2. Check visit history order</td>
+                        <td><span class="severity low">Low</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer E</td>
+                        <td>Added ORDER BY visit_date DESC to query</td>
+                    </tr>
+                    <tr>
+                        <td><span class="bug-id">B-020</span></td>
+                        <td><span class="module">Admin Dashboard (admin/)</span></td>
+                        <td>Statistics cards showing incorrect counts</td>
+                        <td>1. Login as admin 2. View dashboard 3. Compare counts with database</td>
+                        <td><span class="severity medium">Medium</span></td>
+                        <td><span class="status fixed">Fixed</span></td>
+                        <td>Developer F</td>
+                        <td>Fixed SQL aggregation queries; counts now accurate</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="rows-info">
+            <strong>Rows:</strong> <span id="rowCount">20</span>
+        </div>
+    </div>
+
+    <script>
+        function filterTable() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('bugTable');
+            const tbody = table.getElementsByTagName('tbody')[0];
+            const rows = tbody.getElementsByTagName('tr');
+            let visibleCount = 0;
+
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                const text = row.textContent || row.innerText;
+                
+                if (text.toLowerCase().indexOf(filter) > -1) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            }
+
+            document.getElementById('rowCount').textContent = visibleCount;
+        }
+    </script>
+</body>
+</html>

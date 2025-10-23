@@ -1,0 +1,249 @@
+/* Night Mode Styles */
+.night-mode {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3a3a3a;
+    --text-primary: #e5e5e5;
+    --text-secondary: #a0a0a0;
+    --text-muted: #6b7280;
+    --border-color: #404040;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Night Mode Toggle Button Styles */
+#night-mode-toggle {
+    position: relative;
+    z-index: 10;
+    min-width: 40px;
+    min-height: 40px;
+    flex-shrink: 0;
+}
+
+#night-mode-toggle:hover {
+    transform: scale(1.05);
+}
+
+/* Ensure toggle doesn't interfere with header layout */
+nav .flex.items-center.space-x-4 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+}
+
+/* Mobile responsiveness for toggle */
+@media (max-width: 768px) {
+    #night-mode-toggle {
+        min-width: 36px;
+        min-height: 36px;
+        padding: 0.5rem;
+    }
+}
+
+/* Dark theme overrides */
+.night-mode body {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+.night-mode .bg-gray-50 {
+    background-color: var(--bg-primary) !important;
+}
+
+.night-mode .bg-white {
+    background-color: var(--bg-secondary) !important;
+}
+
+.night-mode .bg-gray-100 {
+    background-color: var(--bg-tertiary) !important;
+}
+
+.night-mode .text-gray-900 {
+    color: var(--text-primary) !important;
+}
+
+.night-mode .text-gray-700 {
+    color: var(--text-secondary) !important;
+}
+
+.night-mode .text-gray-600 {
+    color: var(--text-muted) !important;
+}
+
+.night-mode .text-gray-500 {
+    color: var(--text-muted) !important;
+}
+
+/* Cards and containers */
+.night-mode .rounded-xl {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+}
+
+.night-mode .shadow-md {
+    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px var(--shadow-color) !important;
+}
+
+/* Tables */
+.night-mode table {
+    background-color: var(--bg-secondary) !important;
+}
+
+.night-mode thead {
+    background-color: var(--bg-tertiary) !important;
+}
+
+.night-mode tbody tr {
+    border-color: var(--border-color) !important;
+}
+
+.night-mode tbody tr:hover {
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* Forms */
+.night-mode input[type="text"],
+.night-mode input[type="email"],
+.night-mode input[type="password"],
+.night-mode input[type="number"],
+.night-mode select,
+.night-mode textarea {
+    background-color: var(--bg-tertiary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+.night-mode input[type="text"]:focus,
+.night-mode input[type="email"]:focus,
+.night-mode input[type="password"]:focus,
+.night-mode input[type="number"]:focus,
+.night-mode select:focus,
+.night-mode textarea:focus {
+    border-color: #ff8829 !important;
+    box-shadow: 0 0 0 3px rgba(255, 136, 41, 0.1) !important;
+}
+
+/* Buttons */
+.night-mode .bg-blue-50 {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+}
+
+.night-mode .bg-green-50 {
+    background-color: rgba(34, 197, 94, 0.1) !important;
+}
+
+.night-mode .bg-orange-50 {
+    background-color: rgba(255, 136, 41, 0.1) !important;
+}
+
+.night-mode .bg-red-50 {
+    background-color: rgba(239, 68, 68, 0.1) !important;
+}
+
+.night-mode .bg-purple-50 {
+    background-color: rgba(147, 51, 234, 0.1) !important;
+}
+
+/* Modals */
+.night-mode .fixed.inset-0 {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.night-mode .bg-white.rounded-2xl {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Sidebar */
+.night-mode .w-64.bg-white {
+    background-color: var(--bg-secondary) !important;
+}
+
+.night-mode .text-gray-700 {
+    color: var(--text-secondary) !important;
+}
+
+.night-mode .bg-barangay-orange.bg-opacity-10 {
+    background-color: rgba(255, 136, 41, 0.1) !important;
+}
+
+.night-mode .border-barangay-orange {
+    border-color: #ff8829 !important;
+}
+
+/* Statistics cards */
+.night-mode .bg-blue-600 {
+    background-color: #2563eb !important;
+}
+
+.night-mode .bg-green-600 {
+    background-color: #16a34a !important;
+}
+
+.night-mode .bg-orange-600 {
+    background-color: #ea580c !important;
+}
+
+.night-mode .bg-purple-600 {
+    background-color: #9333ea !important;
+}
+
+/* Status badges */
+.night-mode .bg-green-100 {
+    background-color: rgba(34, 197, 94, 0.2) !important;
+}
+
+.night-mode .text-green-800 {
+    color: #16a34a !important;
+}
+
+.night-mode .bg-orange-100 {
+    background-color: rgba(255, 136, 41, 0.2) !important;
+}
+
+.night-mode .text-orange-800 {
+    color: #ea580c !important;
+}
+
+.night-mode .bg-blue-100 {
+    background-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+.night-mode .text-blue-800 {
+    color: #2563eb !important;
+}
+
+.night-mode .bg-gray-100 {
+    background-color: rgba(107, 114, 128, 0.2) !important;
+}
+
+.night-mode .text-gray-800 {
+    color: #6b7280 !important;
+}
+
+/* Navigation remains the same (gradient) */
+.night-mode nav.gradient-bg {
+    background: linear-gradient(135deg, #ff8829 0%, #ff6b35 50%, #f7931e 100%) !important;
+}
+
+/* Charts and canvas elements */
+.night-mode canvas {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Scrollbar styling for dark mode */
+.night-mode ::-webkit-scrollbar {
+    width: 8px;
+}
+
+.night-mode ::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+}
+
+.night-mode ::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+.night-mode ::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}

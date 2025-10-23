@@ -1,0 +1,25 @@
+[33mcommit 24018b0570244719e2045c8205664a6f4845e15b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: ChewObsanga <bsitobsanga304@gmail.com>
+Date:   Thu Sep 18 09:49:29 2025 +0800
+
+    feat: Update admin dashboard UI and fix sidebar consistency
+    
+    - Change header title from 'Admin Dashboard' to 'Brgy. 172 Urduja' across all admin pages
+    - Remove duplicate 'Brgy. 172 Urduja' from subtitle, keeping only 'Caloocan City'
+    - Replace gradient header background with solid orange color to match home page
+    - Move logout button from bottom of sidebar to directly under Settings menu item
+    - Fix User Management sidebar active highlighting and ensure single-line display
+    - Update User Management icon to a cleaner, more aesthetic design
+    - Add whitespace-nowrap class to all sidebar menu items for consistent width
+    - Ensure sidebar width consistency across all admin pages
+    
+    All changes maintain responsive design and improve overall user experience.
+
+admin/barangay-hall.php
+admin/cleanup_users.php
+admin/email-management.php
+admin/health-center.php
+admin/index.php
+admin/reports.php
+admin/settings.php
+admin/users.php

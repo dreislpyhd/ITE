@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Barangay 172 Urduja</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'garamond': ['EB Garamond', 'serif'],
+                    },
+                    colors: {
+                        'barangay-orange': '#ff8829',
+                        'barangay-green': '#2E8B57',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #ff8829 0%, #ff6b35 50%, #f7931e 100%); }
+        .hero-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        body { background-color: #ffffff; }
+        /* Fixed circular watermark (centered) */
+        .watermark {
+            position: fixed;
+            top: 45%;
+            left: 50%;
+            width: clamp(240px, 50vw, 560px);
+            height: clamp(240px, 50vw, 560px);
+            transform: translate(-50%, -50%);
+            background-image: url('assets/images/b172logo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            border-radius: 9999px;
+            opacity: 0.12;
+            mix-blend-mode: multiply;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .animate-fade-up { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+        .in-view { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="font-poppins">
+    <div class="watermark"></div>
+    <!-- Navigation -->
+    <nav class="shadow-lg sticky top-0 z-50 backdrop-blur-md" style="background-color: #ff6700;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div>
+                            <h1 class="text-2xl font-bold text-white font-garamond">Brgy. 172 Urduja</h1>
+                            <p class="text-sm text-orange-100">Caloocan City, Metro Manila</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#home" class="text-white hover:text-orange-200 font-medium transition duration-300">Home</a>
+                    <a href="about.html" class="text-white hover:text-orange-200 font-medium transition duration-300">About</a>
+                    <a href="services.html" class="text-white underline underline-offset-4 decoration-white font-semibold">Services</a>
+                    <a href="index.html#news" class="text-white hover:text-orange-200 font-medium transition duration-300">News</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl p-2 transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-2">
+            <a href="index.html#home" class="py-2 text-gray-800 hover:text-orange-600">Home</a>
+            <a href="about.html" class="py-2 text-gray-800 hover:text-orange-600">About</a>
+            <a href="services.html" class="py-2 text-gray-800 hover:text-orange-600">Services</a>
+            <a href="index.html#news" class="py-2 text-gray-800 hover:text-orange-600">News</a>
+        </div>
+    </div>
+
+    <!-- Services Header -->
+    <section class="py-16 bg-transparent animate-fade-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-garamond">Our <span class="text-barangay-orange">Services</span></h2>
+                <p class="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">Comprehensive digital solutions for all barangay operations. Streamlined, efficient, and accessible to all residents.</p>
+            </div>
+
+            
+
+            <!-- Modern Card Grid: All Services (no outer box) -->
+            <div class="animate-fade-up">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Card template -->
+                        <a href="barangay-hall/index.php" class="group bg-white rounded-2xl border border-gray-200 hover:border-orange-400/70 shadow hover:shadow-lg transition-all p-6 flex flex-col gap-3">
+                            <div class="inline-flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-300 to-green-400 text-white grid place-items-center shadow"><i class="fas fa-award"></i></span>
+                                <h4 class="text-lg font-semibold text-gray-900">Certificates & Clearances</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">Request barangay clearances, residency, indigency and more.</p>
+                            <span class="text-sm font-semibold text-barangay-green group-hover:underline">Request Now →</span>
+                        </a>
+
+                        <a href="barangay-hall/index.php" class="group bg-white rounded-2xl border border-gray-200 hover:border-emerald-500/70 shadow hover:shadow-lg transition-all p-6 flex flex-col gap-3">
+                            <div class="inline-flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-300 to-green-400 text-white grid place-items-center shadow"><i class="fas fa-briefcase"></i></span>
+                                <h4 class="text-lg font-semibold text-gray-900">Barangay Permits</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">Submit endorsements and track approvals online.</p>
+                            <span class="text-sm font-semibold text-barangay-green group-hover:underline">Request Now →</span>
+                        </a>
+
+                        <a href="#" class="group bg-white rounded-2xl border border-gray-200 hover:border-emerald-400/70 shadow hover:shadow-lg transition-all p-6 flex flex-col gap-3">
+                            <div class="inline-flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-300 to-green-400 text-white grid place-items-center shadow"><i class="fas fa-folder-open"></i></span>
+                                <h4 class="text-lg font-semibold text-gray-900">Case Management</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">File and monitor cases with timely updates.</p>
+                            <span class="text-sm font-semibold text-barangay-green group-hover:underline">Open →</span>
+                        </a>
+
+                        <a href="#" class="group bg-white rounded-2xl border border-gray-200 hover:border-orange-400/70 shadow hover:shadow-lg transition-all p-6 flex flex-col gap-3">
+                            <div class="inline-flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-300 to-green-400 text-white grid place-items-center shadow"><i class="fas fa-comments"></i></span>
+                                <h4 class="text-lg font-semibold text-gray-900">Community Concerns</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">Report issues and concerns within the community.</p>
+                            <span class="text-sm font-semibold text-barangay-green group-hover:underline">Open →</span>
+                        </a>
+
+                        <a href="#" class="group bg-white rounded-2xl border border-gray-200 hover:border-amber-400/70 shadow hover:shadow-lg transition-all p-6 flex flex-col gap-3">
+                            <div class="inline-flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-300 to-green-400 text-white grid place-items-center shadow"><i class="fas fa-shield-alt"></i></span>
+                                <h4 class="text-lg font-semibold text-gray-900">Account Verification</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">Secure your account with quick verification.</p>
+                            <span class="text-sm font-semibold text-barangay-green group-hover:underline">Verify →</span>
+                        </a>
+
+                        <a href="health-center/index.php" class="group bg-white rounded-2xl border border-gray-200 hover:border-rose-400/70 shadow hover:shadow-lg transition-all p-6 flex flex-col gap-3">
+                            <div class="inline-flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-300 to-green-400 text-white grid place-items-center shadow"><i class="fas fa-stethoscope"></i></span>
+                                <h4 class="text-lg font-semibold text-gray-900">Medical Consultations</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">Book sessions with our health center staff.</p>
+                            <span class="text-sm font-semibold text-barangay-green group-hover:underline">Book Now →</span>
+                        </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid gap-6 md:grid-cols-3 border-t border-gray-800 pt-6">
+                <div>
+                    <h4 class="text-lg font-semibold mb-2 font-garamond">Contact Details</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-barangay-orange"></i> Magat Salamat St., Urduja Village, Caloocan City</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-barangay-orange"></i> 8442-15-31 / 8442-40-61</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-barangay-orange"></i> <a href="mailto:barangay1722023urduja@gmail.com" class="underline hover:text-orange-300">barangay1722023urduja@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-2 font-garamond">Follow Us</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-brands fa-facebook text-blue-500"></i> <a href="https://www.facebook.com/Barangay1722023/" target="_blank" class="underline hover:text-orange-300">facebook.com/Barangay1722023</a></li>
+                    </ul>
+                </div>
+                <div class="text-sm text-gray-400 md:text-right">
+                    <p>
+                        © 2025 Barangay 172 Urduja Management System. All rights reserved.
+                        <span class="text-barangay-orange">Made with ❤️ for our community</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
+        }
+
+        // Reveal on scroll
+        const obs = new IntersectionObserver((entries)=>{
+            entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in-view'); } });
+        }, {threshold: 0.15, rootMargin: '0px 0px -40px 0px'});
+        document.querySelectorAll('.animate-fade-up').forEach(el=>obs.observe(el));
+
+        // Simple slider (guarded in case elements are absent)
+        const track = document.getElementById('svc-track');
+        if (track) {
+            const slides = 3; let idx = 0; let autoplay;
+            const dots = [0,1,2].map(i=>document.getElementById('dot-'+i)).filter(Boolean);
+            function go(i){ idx = (i+slides)%slides; track.style.transform = `translateX(-${idx*100}%)`; dots.forEach((d,j)=> d.className = `w-2.5 h-2.5 rounded-full ${j===idx?'bg-orange-500':'bg-gray-300'}`); }
+            const prev = document.getElementById('svc-prev');
+            const next = document.getElementById('svc-next');
+            prev && prev.addEventListener('click',()=>{ go(idx-1); restart(); });
+            next && next.addEventListener('click',()=>{ go(idx+1); restart(); });
+            function start(){ autoplay = setInterval(()=>go(idx+1), 5000); }
+            function restart(){ clearInterval(autoplay); start(); }
+            start();
+        }
+    </script>
+</body>
+</html>
